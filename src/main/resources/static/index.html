@@ -1,23 +1,32 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br" ng-app="lexfirma">
 <head>
     <meta charset="UTF-8">
     <title>LexFirma</title>
 
-    <!-- JQuery Library -->
-    <script src="lib/jquery.min.js"></script>
+    <!-- Bootstrap Library -->
+    <link rel="stylesheet" href="lib/bootstrap/bootstrap.css">
 
     <!-- Angular Library -->
     <script src="lib/angular/angular.js"></script>
+    <script src="lib/angular/angular-route.js"></script>
 
-    <!-- Bootstrap Library -->
-    <script src="lib/bootstrap/bootstrap.css"></script>
-    <script src="lib/bootstrap/bootstrap.js"></script>
+    <!-- UI-Bootstrap Library -->
+    <script src="lib/ui-bootstrap/ui-bootstrap-tpls-0.13.1.min.js"></script>
+
+    <!-- Project Files -->
+    <link rel="stylesheet" href="css/general.css">
+    <script src="js/app.js"></script>
+    <script src="js/config/routConfig.js"></script>
+    <script src="js/service/usuarioService.js"></script>
+    <script src="js/controller/loginCtrl.js"></script>
+    <script src="js/controller/modalInstanceCtrl.js"></script>
+
 
 </head>
 <body>
-<footer id="rodape">
-    <p class="copyright">LexFirma ©2021</p>
-</footer>
+<div ng-include="'view/header.html'"></div>
+<ng-view></ng-view>
+<div ng-include="'view/footer.html'"></div>
 </body>
 </html>
