@@ -3,15 +3,22 @@ angular
     .controller("pessoaCtrl", function ($scope, pessoas, $rootScope, pessoaAPI, $modal) {
         $scope.pessoas = pessoas.data
 
-        $scope.open = function () {
+        $scope.open = function (pessoa) {
+
             const modalInstance = $modal.open({
                 animation: true,
                 templateUrl: 'view/modalPessoa.html',
-                controller: 'modalInstanceCtrl'
+                controller: 'modalInstanceCtrl',
+                resolve: {
+                    cadastro: function () {
+                        return pessoa
+                    }
+                }
             })
 
             modalInstance.result.then(function (cadastro) {
                 const pessoa = {
+                    id: cadastro.id,
                     nome: cadastro.nome,
                     documento: cadastro.documento,
                     contato: cadastro.contato

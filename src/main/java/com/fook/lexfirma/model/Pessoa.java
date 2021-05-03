@@ -1,5 +1,7 @@
 package com.fook.lexfirma.model;
 
+import java.util.Objects;
+
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 
@@ -51,6 +53,21 @@ public class Pessoa {
 
     public void setContato(String contato) {
 	this.contato = contato;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+	if (this == o)
+	    return true;
+	if (o == null || getClass() != o.getClass())
+	    return false;
+	Pessoa pessoa = (Pessoa) o;
+	return id.equals(pessoa.id);
+    }
+
+    @Override
+    public int hashCode() {
+	return Objects.hash(id);
     }
 
     @Override

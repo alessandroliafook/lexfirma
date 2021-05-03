@@ -38,12 +38,13 @@ public class UsuarioService {
     }
 
     public Pessoa addPessoa(Long id, Pessoa pessoa) {
-
 	Pessoa pessoaSalva = pessoaRepository.save(pessoa);
-	Usuario usuario = usuarioRepository.getOne(id);
 
-	usuario.getPessoas().add(pessoa);
-	usuarioRepository.save(usuario);
+	Usuario usuario = usuarioRepository.getOne(id);
+	if (!usuario.getPessoas().contains(pessoa)) {
+	    usuario.getPessoas().add(pessoa);
+	    usuarioRepository.save(usuario);
+	}
 
 	return pessoaSalva;
     }

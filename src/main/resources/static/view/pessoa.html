@@ -1,19 +1,19 @@
 <div ng-include="'view/navbar.html'"></div>
-<div class="jumbotron col-sm-8 col-sm-offset-2">
+<div class="col-sm-8 col-sm-offset-2">
     <input class="form-control" type="text" ng-model="criterioDeBusca"
            placeholder="Quem você está buscando?">
-    <table ng-hide="pessoas.length == 0" class="table">
+    <table ng-hide="pessoas.length == 0" class="table table-hover table-striped table-responsive table-condensed">
         <tr>
             <th>Nome</th>
             <th>Documento</th>
             <th>Contato</th>
         </tr>
-        <tr ng-repeat="pessoa in pessoas | filter:criterioDeBusca">
+        <tr ng-click="open(pessoa)" ng-repeat="pessoa in pessoas | filter:criterioDeBusca">
             <td>{{pessoa.nome | name}}</td>
             <td>{{pessoa.documento}}</td>
             <td>{{pessoa.contato}}</td>
         </tr>
     </table>
     <hr>
-    <a class="btn btn-success btn-block" ng-click="open()">Cadastrar Pessoa</a>
+    <a class="btn btn-success btn-block" ng-click="open({})">Cadastrar Pessoa</a>
 </div>
