@@ -1,5 +1,8 @@
 package com.fook.lexfirma.model;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.persistence.*;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
@@ -20,6 +23,17 @@ public class Usuario {
 
     @OneToOne
     private Pessoa pessoa;
+
+    @OneToMany
+    private List<Pessoa> pessoas;
+
+    @OneToMany
+    private List<Processo> processos;
+
+    Usuario() {
+	this.pessoas = new ArrayList<>();
+	this.processos = new ArrayList<>();
+    }
 
     public Long getId() {
 	return id;
@@ -43,6 +57,26 @@ public class Usuario {
 
     public void setPessoa(Pessoa pessoa) {
 	this.pessoa = pessoa;
+    }
+
+    public void addPessoa(Pessoa pessoa) {
+	this.pessoas.add(pessoa);
+    }
+
+    public List<Pessoa> getPessoas() {
+	return pessoas;
+    }
+
+    public void setPessoas(List<Pessoa> pessoas) {
+	this.pessoas = pessoas;
+    }
+
+    public List<Processo> getProcessos() {
+	return processos;
+    }
+
+    public void setProcessos(List<Processo> processos) {
+	this.processos = processos;
     }
 
     @Override

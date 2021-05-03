@@ -1,11 +1,14 @@
 angular
     .module("lexfirma")
-    .controller("loginCtrl", function ($scope, $modal, usuarioAPI) {
+    .controller("loginCtrl", function ($scope, $modal, usuarioAPI, $location, $rootScope) {
+
+        $rootScope.userId = null
 
         $scope.realizarLogin = function (login) {
             usuarioAPI.getUsuario(login.email).success(
                 function (data) {
-                    let usuario = JSON.stringify(data)
+                    $rootScope.userId = data.id
+                    $location.path("/pessoas")
                 }).error(function (data, status) {
                 console.log(`Erro ${status}: ${data.message}`)
             })
@@ -19,7 +22,6 @@ angular
             })
 
             modalInstance.result.then(function (cadastro) {
-                console.log(cadastro)
                 const usuario = {
                     email: cadastro.email,
                     pessoa: {
@@ -27,12 +29,11 @@ angular
                         documento: cadastro.documento
                     }
                 }
-                console.log(usuario)
                 usuarioAPI
                     .saveUsuario(usuario)
                     .success(
                         function (data) {
-                            console.log(data)
+                            console.log("Usuario Cadastrado com sucesso")
                         }
                     )
                     .error(function (data, status) {

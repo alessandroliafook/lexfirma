@@ -18,6 +18,9 @@ public class Pessoa {
     @NotBlank(message = "O documento não pode ser vazio!")
     private String documento;
 
+    @Column
+    private String contato;
+
     public Long getId() {
 	return id;
     }
@@ -42,8 +45,17 @@ public class Pessoa {
 	this.documento = documento;
     }
 
+    public String getContato() {
+	return contato;
+    }
+
+    public void setContato(String contato) {
+	this.contato = contato;
+    }
+
     @Override
     public String toString() {
-	return "Pessoa{" + "id=" + id + ", nome='" + nome + '\'' + ", documento='" + documento + '\'' + '}';
+	return "Pessoa{" + "id=" + id + ", nome='" + nome + '\'' + ", documento='" + documento + '\'' + ", contato='"
+		+ contato + '\'' + '}';
     }
 }
