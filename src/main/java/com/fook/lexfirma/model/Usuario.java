@@ -9,7 +9,7 @@ import javax.validation.constraints.NotBlank;
 
 import org.springframework.data.relational.core.mapping.Table;
 
-@Entity(name = "Usuario")
+@Entity(name = "usuario")
 @Table
 public class Usuario {
     @Id
@@ -27,12 +27,12 @@ public class Usuario {
     @OneToMany
     private List<Pessoa> pessoas;
 
-    @OneToMany
-    private List<Processo> processos;
+//    @OneToMany
+//    private List<Processo> processos;
 
     Usuario() {
 	this.pessoas = new ArrayList<>();
-	this.processos = new ArrayList<>();
+//	this.processos = new ArrayList<>();
     }
 
     public Long getId() {
@@ -71,13 +71,13 @@ public class Usuario {
 	this.pessoas = pessoas;
     }
 
-    public List<Processo> getProcessos() {
-	return processos;
-    }
-
-    public void setProcessos(List<Processo> processos) {
-	this.processos = processos;
-    }
+//    public List<Processo> getProcessos() {
+//	return processos;
+//    }
+//
+//    public void setProcessos(List<Processo> processos) {
+//	this.processos = processos;
+//    }
 
     @Override
     public String toString() {

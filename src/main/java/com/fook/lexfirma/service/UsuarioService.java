@@ -6,7 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import com.fook.lexfirma.model.Pessoa;
-import com.fook.lexfirma.model.Processo;
+//import com.fook.lexfirma.model.Processo;
 import com.fook.lexfirma.model.Usuario;
 import com.fook.lexfirma.repository.PessoaRepository;
 import com.fook.lexfirma.repository.UsuarioRepository;
@@ -49,13 +49,13 @@ public class UsuarioService {
 	return pessoaSalva;
     }
 
-    public void addProcesso(Processo processo, Long id) {
-	Usuario usuario = usuarioRepository.getOne(id);
-	usuario.getProcessos().add(processo);
-	usuarioRepository.save(usuario);
-    }
+//    public void addProcesso(Processo processo, Long id) {
+//	Usuario usuario = usuarioRepository.getOne(id);
+//	usuario.getProcessos().add(processo);
+//	usuarioRepository.save(usuario);
+//    }
 
-    public List<Processo> getProcessos(Long id) {
-	return usuarioRepository.getOne(id).getProcessos();
-    }
+//    public List<Processo> getProcessos(Long id) {
+//	return usuarioRepository.getOne(id).getProcessos();
+//    }
 }
