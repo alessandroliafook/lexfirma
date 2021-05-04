@@ -18,7 +18,12 @@ angular
             const modalInstance = $modal.open({
                 animation: true,
                 templateUrl: 'view/modalLogin.html',
-                controller: 'modalInstanceCtrl'
+                controller: 'modalInstanceCtrl',
+                resolve: {
+                    cadastro: function () {
+                        return {}
+                    }
+                }
             })
 
             modalInstance.result.then(function (cadastro) {
