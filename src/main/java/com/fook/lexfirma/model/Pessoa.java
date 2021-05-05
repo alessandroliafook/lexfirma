@@ -11,15 +11,12 @@ public class Pessoa {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-
     @Column
     @NotBlank(message = "O nome não pode ser vazio!")
     private String nome;
-
     @Column
     @NotBlank(message = "O documento não pode ser vazio!")
     private String documento;
-
     @Column
     private String contato;
 
