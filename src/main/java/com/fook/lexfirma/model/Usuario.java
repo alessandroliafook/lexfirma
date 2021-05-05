@@ -24,7 +24,7 @@ public class Usuario {
     @OneToOne
     private Pessoa pessoa;
 
-    @OneToMany
+    @OneToMany(cascade = CascadeType.ALL)
     private List<Pessoa> pessoas;
 
 //    @OneToMany
@@ -81,6 +81,6 @@ public class Usuario {
 
     @Override
     public String toString() {
-	return "Usuario{" + "id=" + id + ", email='" + email + '\'' + ", pessoa=" + pessoa + '}';
+	return "Usuario{" + "id=" + id + ", email='" + email + '\'' + ", pessoa=" + pessoa + ", pessoas=" + pessoas + '}';
     }
 }

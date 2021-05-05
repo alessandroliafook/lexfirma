@@ -7,7 +7,7 @@ angular
         $scope.realizarLogin = function (login) {
             usuarioAPI.getUsuario(login.email).success(
                 function (data) {
-                    $rootScope.userId = data.id
+                    $rootScope.userId = data
                     $location.path("/pessoas")
                 }).error(function (data, status) {
                 console.log(`Erro ${status}: ${data.message}`)

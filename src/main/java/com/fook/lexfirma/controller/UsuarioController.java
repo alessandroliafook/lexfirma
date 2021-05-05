@@ -21,17 +21,7 @@ public class UsuarioController {
     }
 
     @RequestMapping(value = "/usuario/{email}", method = RequestMethod.GET)
-    public @ResponseBody Usuario cadastrarUsuario(@PathVariable String email) {
+    public @ResponseBody Long login(@PathVariable String email) {
 	return usuarioService.logar(email);
-    }
-
-    @RequestMapping(value = "/pessoas/{id}", method = RequestMethod.GET)
-    public @ResponseBody List<Pessoa> cadastrarUsuario(@PathVariable Long id) {
-	return usuarioService.getPessoas(id);
-    }
-
-    @RequestMapping(value = "/pessoas/{id}", method = RequestMethod.POST)
-    public @ResponseBody Pessoa cadastrarPessoa(@PathVariable Long id, @RequestBody Pessoa pessoa) {
-	return usuarioService.addPessoa(id, pessoa);
     }
 }

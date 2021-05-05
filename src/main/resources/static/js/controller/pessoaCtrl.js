@@ -3,6 +3,11 @@ angular
     .controller("pessoaCtrl", function ($scope, pessoas, $rootScope, pessoaAPI, $modal) {
         $scope.pessoas = pessoas.data
 
+        $scope.delete = function (id) {
+            pessoaAPI.deletePessoa($rootScope.userId, id)
+            updatePessoas()
+        }
+
         $scope.open = function (pessoa) {
 
             const modalInstance = $modal.open({
@@ -29,12 +34,25 @@ angular
                     .success(
                         function (data) {
                             console.log("Pessoa Cadastrada com sucesso.")
-                            $scope.pessoas.push(data)
+                            if (!pessoa.id)
+                                $scope.pessoas.push(data)
+                            else {
+                                updatePessoas()
+                            }
                         }
                     )
                     .error(function (data, status) {
                         console.log(`Erro ${status}: ${data.message}`)
                     })
+            })
+        }
+
+        const updatePessoas = function () {
+            pessoaAPI.getPessoas($rootScope.userId)
+                .success(function (data) {
+                    $scope.pessoas = data
+                }).error(function (data, status) {
+                console.log(`Erro ${status}: ${data.message}`)
             })
         }
     })
