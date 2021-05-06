@@ -14,4 +14,16 @@ angular.module("lexfirma").config(function ($routeProvider) {
                 }
             }
         })
+        .when("/processos", {
+            templateUrl: "view/processo.html",
+            controller: "processoCtrl",
+            resolve: {
+                processos: function (processoAPI, $rootScope) {
+                    return processoAPI.getProcessos($rootScope.userId)
+                },
+                pessoas: function (pessoaAPI, $rootScope) {
+                    return pessoaAPI.getPessoas($rootScope.userId)
+                }
+            }
+        })
 })

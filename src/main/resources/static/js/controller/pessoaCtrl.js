@@ -4,7 +4,7 @@ angular
         $scope.pessoas = pessoas.data
 
         $scope.delete = function (id) {
-            pessoaAPI.deletePessoa($rootScope.userId, id)
+            pessoaAPI.deletePessoa(id)
             updatePessoas()
         }
 
@@ -26,11 +26,12 @@ angular
                     id: cadastro.id,
                     nome: cadastro.nome,
                     documento: cadastro.documento,
-                    contato: cadastro.contato
+                    contato: cadastro.contato,
+                    usuarioID: $rootScope.userId
                 }
 
                 pessoaAPI
-                    .savePessoa($rootScope.userId, pessoa)
+                    .savePessoa(pessoa)
                     .success(
                         function (data) {
                             console.log("Pessoa Cadastrada com sucesso.")

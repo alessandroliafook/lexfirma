@@ -29,10 +29,8 @@ angular
             modalInstance.result.then(function (cadastro) {
                 const usuario = {
                     email: cadastro.email,
-                    pessoa: {
-                        nome: cadastro.nome,
-                        documento: cadastro.documento
-                    }
+                    nome: cadastro.nome,
+                    documento: cadastro.documento
                 }
                 usuarioAPI
                     .saveUsuario(usuario)

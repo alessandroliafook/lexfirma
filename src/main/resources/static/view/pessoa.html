@@ -16,11 +16,13 @@
                     <th>Nome</th>
                     <th>Documento</th>
                     <th>Contato</th>
+                    <th></th>
                 </tr>
                 <tr ng-repeat="pessoa in pessoas | filter:criterioDeBusca">
                     <td>{{pessoa.nome | name}}</td>
                     <td>{{pessoa.documento}}</td>
-                    <td>{{pessoa.contato}}
+                    <td>{{pessoa.contato}}</td>
+                    <td>
                         <a class="btn btn-danger btn-xs pull-right"
                            ng-click="delete(pessoa.id)">
                             <i class="fa fa-trash-o" aria-hidden="true"></i></a>

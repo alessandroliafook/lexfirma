@@ -1,13 +1,13 @@
 angular.module("lexfirma").factory("pessoaAPI", function ($http) {
     const _getPessoas = function (idUsuario) {
-        return $http.get(`/usuario/${idUsuario}/pessoas`)
+        return $http.get(`/pessoas/${idUsuario}`)
     }
-    const _savePessoa = function (idUsuario, pessoa) {
-        return $http.post(`/usuario/${idUsuario}/pessoas`, pessoa)
+    const _savePessoa = function (pessoa) {
+        return $http.post(`/pessoas`, pessoa)
 
     }
-    const _deletePessoa = function (idUsuario, id) {
-        return $http.delete(`/usuario/${idUsuario}/pessoas/${id}`)
+    const _deletePessoa = function (id) {
+        return $http.delete(`/pessoas/${id}`)
     }
     return {
         getPessoas: _getPessoas,

@@ -1,19 +1,42 @@
-<!--<div ng-include="'view/navbar.html'"></div>-->
-<!--<div class="jumbotron col-sm-8 col-sm-offset-2">-->
-<!--    <input class="form-control" type="text" ng-model="criterioDeBusca"-->
-<!--           placeholder="Quem você está buscando?">-->
-<!--    <table ng-hide="pessoas.length == 0" class="table">-->
-<!--        <tr>-->
-<!--            <th>Nome</th>-->
-<!--            <th>Documento</th>-->
-<!--            <th>Contato</th>-->
-<!--        </tr>-->
-<!--        <tr ng-repeat="pessoa in pessoas | filter:criterioDeBusca">-->
-<!--            <td>{{pessoa.nome | name}}</td>-->
-<!--            <td>{{pessoa.documento}}</td>-->
-<!--            <td>{{pessoa.contato}}</td>-->
-<!--        </tr>-->
-<!--    </table>-->
-<!--    <hr>-->
-<!--    <a class="btn btn-success btn-block" ng-click="open()">Cadastrar Pessoa</a>-->
-<!--</div>-->
+<div ng-include="'view/navbar.html'"></div>
+<div class="col-sm-8 col-sm-offset-2">
+    <div class=" panel panel-default">
+        <div class="panel-heading">
+            <h3>
+                Processos
+                <a class="btn btn-info fa fa-plus pull-right" ng-click="open({})"></i></a>
+            </h3>
+        </div>
+        <div class="panel-body">
+            <input class="form-control" type="text" ng-model="criterioDeBusca"
+                   placeholder="Quem você está buscando?">
+            <table ng-hide="processos.length == 0"
+                   class="table table-striped table-responsive table-condensed">
+                <tr>
+                    <th>Numero</th>
+                    <th>Cliente</th>
+                    <th>Data de Inicio</th>
+                    <th>Data do Fim</th>
+                    <th>Valor da Causa</th>
+                    <th></th>
+                </tr>
+                <tr ng-repeat="processo in processos | filter:criterioDeBusca">
+                    <td>{{processo.numero}}</td>
+                    <td>{{getNomeCliente(processo.clienteID)}}</td>
+                    <td>{{processo.inicio | date:'dd/MM/yyyy'}}</td>
+                    <td>{{processo.fim | date:'dd/MM/yyyy'}}</td>
+                    <td>{{processo.valorDaCausa}}</td>
+                    <td>
+                        <a class="btn btn-danger btn-xs pull-right"
+                           ng-click="delete(processo.id)">
+                            <i class="fa fa-trash-o" aria-hidden="true"></i></a>
+                        <div class="pull-right" style="padding: 5px"></div>
+                        <a class="btn btn-primary btn-xs pull-right"
+                           ng-click="open(processo)">
+                            <i class="fa fa-pencil" aria-hidden="true"></i></a>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</div>
