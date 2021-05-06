@@ -4,9 +4,13 @@
 <div class="modal-body">
     <form>
         <input class="form-control" type="text" placeholder="Numero" ng-model="cadastro.numero">
-        <input class="form-control" type="datetime-local" ng-model="cadastro.inicio">
-        <input class="form-control" type="datetime-local" ng-model="cadastro.fim">
+        <input class="form-control" type="date" ng-model="cadastro.inicio">
+        <input class="form-control" type="date" ng-model="cadastro.fim">
         <input class="form-control" type="number" placeholder="Valor da Causa" ng-model="cadastro.valorDaCausa">
+        <select class="form-control" ng-model="cadastro.clienteID"
+                ng-options="pessoa.id as pessoa.nome for pessoa in pessoas">
+            <option value="">Selecione uma pessoa</option>
+        </select>
     </form>
 </div>
 <div class="modal-footer">

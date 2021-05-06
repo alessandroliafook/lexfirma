@@ -20,6 +20,7 @@ public class ProcessoController {
 
     @RequestMapping(value = "/processo", method = RequestMethod.POST)
     public @ResponseBody Processo cadastrarProcesso(@RequestBody Processo processo) {
+        System.out.println(processo);
 	return processoService.save(processo);
     }
 

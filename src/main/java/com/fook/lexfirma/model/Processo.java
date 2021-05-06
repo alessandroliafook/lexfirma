@@ -19,7 +19,7 @@ public class Processo {
     private Long usuarioID;
 
     @Column
-    private Long clientID;
+    private Long clienteID;
 
     @Column
     private Date inicio;
@@ -54,12 +54,12 @@ public class Processo {
 	this.usuarioID = usuarioID;
     }
 
-    public Long getClientID() {
-	return clientID;
+    public Long getClienteID() {
+	return clienteID;
     }
 
-    public void setClientID(Long clientID) {
-	this.clientID = clientID;
+    public void setClienteID(Long clientID) {
+	this.clienteID = clientID;
     }
 
     public Date getInicio() {
@@ -104,6 +104,6 @@ public class Processo {
     @Override
     public String toString() {
 	return "Processo{" + "id=" + id + ", numero='" + numero + '\'' + ", usuarioID=" + usuarioID + ", clientID="
-		+ clientID + ", inicio=" + inicio + ", fim=" + fim + ", valorDaCausa=" + valorDaCausa + '}';
+		+ clienteID + ", inicio=" + inicio + ", fim=" + fim + ", valorDaCausa=" + valorDaCausa + '}';
     }
 }
