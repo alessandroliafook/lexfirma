@@ -23,8 +23,8 @@
                 <tr ng-repeat="processo in processos | filter:criterioDeBusca">
                     <td>{{processo.numero}}</td>
                     <td>{{processo.clientID}}</td>
-                    <td>{{processo.inicio}}</td>
-                    <td>{{processo.fim}}</td>
+                    <td>{{processo.inicio | date:'dd/MM/yyyy'}}</td>
+                    <td>{{processo.fim | date:'dd/MM/yyyy'}}</td>
                     <td>{{processo.valorDaCausa}}</td>
                     <td>
                         <a class="btn btn-danger btn-xs pull-right"

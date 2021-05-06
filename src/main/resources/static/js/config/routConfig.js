@@ -19,7 +19,7 @@ angular.module("lexfirma").config(function ($routeProvider) {
             controller: "processoCtrl",
             resolve: {
                 processos: function (processoAPI, $rootScope) {
-                    processoAPI.getProcessos($rootScope.userId)
+                    return processoAPI.getProcessos($rootScope.userId)
                 }
             }
         })

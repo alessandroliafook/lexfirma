@@ -1,6 +1,7 @@
 package com.fook.lexfirma.model;
 
 import java.util.Date;
+import java.util.Objects;
 
 import javax.persistence.*;
 
@@ -83,6 +84,21 @@ public class Processo {
 
     public void setValorDaCausa(float valorDaCausa) {
 	this.valorDaCausa = valorDaCausa;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+	if (this == o)
+	    return true;
+	if (o == null || getClass() != o.getClass())
+	    return false;
+	Processo processo = (Processo) o;
+	return Objects.equals(id, processo.id);
+    }
+
+    @Override
+    public int hashCode() {
+	return Objects.hash(id);
     }
 
     @Override

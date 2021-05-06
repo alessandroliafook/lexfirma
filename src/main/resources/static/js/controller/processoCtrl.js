@@ -1,12 +1,14 @@
 angular
     .module("lexfirma")
     .controller("processoCtrl", function ($scope, $modal, processos, processoAPI, $rootScope) {
-        if(processos)
-            $scope.processos = processos.data
-        else
-            $scope.processos = []
+        $scope.processos = processos.data
 
         $scope.open = function (processo) {
+
+            if(processo) {
+                processo.inicio = new Date(processo.inicio)
+                processo.fim = new Date (processo.fim)
+            }
 
             const modalInstance = $modal.open({
                 animation: true,
@@ -28,12 +30,13 @@ angular
                     valorDaCausa: cadastro.valorDaCausa,
                     usuarioID: $rootScope.userId
                 }
+                console.log(processo)
 
                 processoAPI
                     .saveProcesso(processo)
                     .success(
                         function (data) {
-                            console.log("Processo Cadastrado com sucesso.")
+                            console.log("Processo Cadastrado com sucesso." + data)
                             if (!processo.id)
                                 $scope.processos.push(data)
                             else {
@@ -50,6 +53,7 @@ angular
         const updateProcessos = function () {
             processoAPI.getProcessos($rootScope.userId)
                 .success(function (data) {
+                    console.log(data)
                     $scope.processos = data
                 }).error(function (data, status) {
                 console.log(`Erro ${status}: ${data.message}`)
