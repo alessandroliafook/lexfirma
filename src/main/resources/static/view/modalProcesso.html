@@ -1,0 +1,15 @@
+<div class="modal-header">
+    <h3 class="modal-title">Cadastrar Processo</h3>
+</div>
+<div class="modal-body">
+    <form>
+        <input class="form-control" type="text" placeholder="Numero" ng-model="cadastro.numero">
+        <input class="form-control" type="date" placeholder="Data de Início" ng-model="cadastro.inicio">
+        <input class="form-control" type="date" placeholder="Data do Fim" ng-model="cadastro.fim">
+        <input class="form-control" type="number" placeholder="Valor da Causa" ng-model="cadastro.valorDaCausa">
+    </form>
+</div>
+<div class="modal-footer">
+    <button class="btn btn-success" ng-click="ok()">OK</button>
+    <button class="btn btn-default" ng-click="cancel()">Cancel</button>
+</div>
