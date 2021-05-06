@@ -11,14 +11,20 @@ public class Pessoa {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
+
     @Column
     @NotBlank(message = "O nome não pode ser vazio!")
     private String nome;
+
     @Column
     @NotBlank(message = "O documento não pode ser vazio!")
     private String documento;
+
     @Column
     private String contato;
+
+    @Column
+    private Long usuarioID;
 
     public Long getId() {
 	return id;
@@ -52,6 +58,14 @@ public class Pessoa {
 	this.contato = contato;
     }
 
+    public Long getUsuarioID() {
+	return usuarioID;
+    }
+
+    public void setUsuarioID(Long usuario_id) {
+	this.usuarioID = usuario_id;
+    }
+
     @Override
     public boolean equals(Object o) {
 	if (this == o)
@@ -70,6 +84,6 @@ public class Pessoa {
     @Override
     public String toString() {
 	return "Pessoa{" + "id=" + id + ", nome='" + nome + '\'' + ", documento='" + documento + '\'' + ", contato='"
-		+ contato + '\'' + '}';
+		+ contato + '\'' + ", usuario_id=" + usuarioID + '}';
     }
 }

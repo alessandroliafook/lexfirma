@@ -1,11 +1,8 @@
 package com.fook.lexfirma.controller;
 
-import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-import com.fook.lexfirma.model.Pessoa;
 import com.fook.lexfirma.model.Usuario;
 import com.fook.lexfirma.service.UsuarioService;
 

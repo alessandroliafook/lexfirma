@@ -1,32 +1,31 @@
 package com.fook.lexfirma.controller;
 
-import com.fook.lexfirma.model.Pessoa;
-import com.fook.lexfirma.service.UsuarioService;
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.List;
+import com.fook.lexfirma.model.Pessoa;
+import com.fook.lexfirma.service.PessoaService;
 
 @RestController
-@RequestMapping("/usuario/{idUsuario}")
 public class PessoaController {
 
-		@Autowired
-		private UsuarioService usuarioService;
+    @Autowired
+    private PessoaService pessoaService;
 
-		@RequestMapping(value = "/pessoas", method = RequestMethod.GET)
-		public @ResponseBody List<Pessoa> listarPessoas(@PathVariable Long idUsuario) {
-				return usuarioService.getPessoas(idUsuario);
-		}
+    @RequestMapping(value = "/pessoas/{idUsuario}", method = RequestMethod.GET)
+    public @ResponseBody List<Pessoa> listarPessoas(@PathVariable Long idUsuario) {
+	return pessoaService.getPessoas(idUsuario);
+    }
 
-		@RequestMapping(value = "/pessoas", method = RequestMethod.POST)
-		public @ResponseBody Pessoa cadastrarPessoa(@PathVariable Long idUsuario, @RequestBody Pessoa pessoa) {
+    @RequestMapping(value = "/pessoas", method = RequestMethod.POST)
+    public @ResponseBody Pessoa cadastrarPessoa(@RequestBody Pessoa pessoa) {
+	return pessoaService.addPessoa(pessoa);
+    }
 
-				return usuarioService.addPessoa(idUsuario, pessoa);
-		}
-
-		@RequestMapping(value = "/pessoas/{id}", method = RequestMethod.DELETE)
-		public void removerPessoa(@PathVariable Long idUsuario, @PathVariable Long id) {
-				usuarioService.removerPessoa(idUsuario, id);
-		}
+    @RequestMapping(value = "/pessoas/{id}", method = RequestMethod.DELETE)
+    public void removerPessoa(@PathVariable Long id) {
+	pessoaService.removePessoa(id);
+    }
 }
