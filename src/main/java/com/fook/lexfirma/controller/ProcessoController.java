@@ -15,12 +15,8 @@ public class ProcessoController {
     @Autowired
     private ProcessoService processoService;
 
-    @Autowired
-    private UsuarioService usuarioService;
-
     @RequestMapping(value = "/processo", method = RequestMethod.POST)
     public @ResponseBody Processo cadastrarProcesso(@RequestBody Processo processo) {
-        System.out.println(processo);
 	return processoService.save(processo);
     }
 
