@@ -1,0 +1,22 @@
+<div class="modal-header">
+    <h3 class="modal-title">Cadastrar Recibo</h3>
+</div>
+<div class="modal-body">
+    <form>
+        <select class="form-control" ng-model="cadastro.processoID"
+                ng-options="processo.id as processo.numero for processo in processos">
+            <option value="">Selecione um processo</option>
+        </select>
+        <select class="form-control" ng-model="cadastro.titularID"
+                ng-options="pessoa.id as pessoa.nome for pessoa in pessoas">
+            <option value="">Selecione uma pessoa</option>
+        </select>
+        <input class="form-control" type="date" ng-model="cadastro.vencimento">
+        <input class="form-control" type="number" placeholder="Valor" ng-model="cadastro.valor">
+        <input class="checkbox" type="checkbox" ng-model="cadastro.pago">
+    </form>
+</div>
+<div class="modal-footer">
+    <button class="btn btn-success" ng-click="ok()">OK</button>
+    <button class="btn btn-default" ng-click="cancel()">Cancel</button>
+</div>

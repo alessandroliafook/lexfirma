@@ -54,7 +54,6 @@ angular
                     usuarioID: $rootScope.userId,
                     clienteID: cadastro.clienteID
                 }
-                console.log(processo)
 
                 processoAPI
                     .saveProcesso(processo)

@@ -26,4 +26,19 @@ angular.module("lexfirma").config(function ($routeProvider) {
                 }
             }
         })
+        .when("/recibos", {
+            templateUrl: "view/recibo.html",
+            controller: "reciboCtrl",
+            resolve: {
+                recibos: function (reciboAPI, $rootScope) {
+                    return reciboAPI.getRecibos($rootScope.userId)
+                },
+                processos: function (processoAPI, $rootScope) {
+                    return processoAPI.getProcessos($rootScope.userId)
+                },
+                pessoas: function (pessoaAPI, $rootScope) {
+                    return pessoaAPI.getPessoas($rootScope.userId)
+                }
+            }
+        })
 })
