@@ -7,8 +7,10 @@ angular
         $scope.realizarLogin = function (login) {
             usuarioAPI.login(login.email).success(
                 function (data) {
-                    $localStorage.userId = data
-                    $location.path("/pessoas")
+                    if(data > 0){
+                        $localStorage.userId = data
+                        $location.path("/pessoas")
+                    }
                 }).error(function (data, status) {
                 console.log(`Erro ${status}: ${data.message}`)
             })
