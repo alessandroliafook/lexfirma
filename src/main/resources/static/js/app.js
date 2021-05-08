@@ -1,1 +1,1 @@
-angular.module("lexfirma", ["ngRoute", "ui.bootstrap"])
+angular.module("lexfirma", ["ngRoute", "ui.bootstrap", "ngStorage"])

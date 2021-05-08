@@ -24,4 +24,8 @@ public class UsuarioService {
 	    return usuario.getId();
 	return new Long(-1);
     }
+
+    public Usuario getUsuario(Long id) {
+	return usuarioRepository.getOne(id);
+    }
 }

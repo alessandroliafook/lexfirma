@@ -1,6 +1,6 @@
 angular
     .module("lexfirma")
-    .controller("reciboCtrl", function ($scope, $modal, reciboAPI, recibos, $rootScope, processos, pessoas) {
+    .controller("reciboCtrl", function ($scope, $modal, reciboAPI, recibos, $localStorage, processos, pessoas) {
         $scope.recibos = recibos.data
         $scope.processos = processos.data
         $scope.pessoas = pessoas.data
@@ -66,7 +66,7 @@ angular
                     titularID: cadastro.titularID,
                     processoID: cadastro.processoID,
                     pago: cadastro.pago || false,
-                    usuarioID: $rootScope.userId
+                    usuarioID: $localStorage.userId
                 }
 
                 reciboAPI
@@ -88,7 +88,7 @@ angular
         }
 
         const updateRecibos = function () {
-            reciboAPI.getRecibos($rootScope.userId)
+            reciboAPI.getRecibos($localStorage.userId)
                 .success(function (data) {
                     $scope.recibos = data
                 })
