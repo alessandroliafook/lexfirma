@@ -1,13 +1,13 @@
 angular
     .module("lexfirma")
-    .controller("loginCtrl", function ($scope, $modal, usuarioAPI, $location, $rootScope) {
+    .controller("loginCtrl", function ($scope, $modal, usuarioAPI, $location, $localStorage) {
 
-        $rootScope.userId = null
+        $localStorage.userId = null
 
         $scope.realizarLogin = function (login) {
-            usuarioAPI.getUsuario(login.email).success(
+            usuarioAPI.login(login.email).success(
                 function (data) {
-                    $rootScope.userId = data
+                    $localStorage.userId = data
                     $location.path("/pessoas")
                 }).error(function (data, status) {
                 console.log(`Erro ${status}: ${data.message}`)

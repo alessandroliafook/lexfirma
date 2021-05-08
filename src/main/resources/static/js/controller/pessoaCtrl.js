@@ -1,6 +1,6 @@
 angular
     .module("lexfirma")
-    .controller("pessoaCtrl", function ($scope, pessoas, $rootScope, pessoaAPI, $modal) {
+    .controller("pessoaCtrl", function ($scope, pessoas, $localStorage, pessoaAPI, $modal) {
         $scope.pessoas = pessoas.data
 
         $scope.delete = function (id) {
@@ -27,7 +27,7 @@ angular
                     nome: cadastro.nome,
                     documento: cadastro.documento,
                     contato: cadastro.contato,
-                    usuarioID: $rootScope.userId
+                    usuarioID: $localStorage.userId
                 }
 
                 pessoaAPI
@@ -49,7 +49,7 @@ angular
         }
 
         const updatePessoas = function () {
-            pessoaAPI.getPessoas($rootScope.userId)
+            pessoaAPI.getPessoas($localStorage.userId)
                 .success(function (data) {
                     $scope.pessoas = data
                 }).error(function (data, status) {

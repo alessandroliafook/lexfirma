@@ -4,10 +4,12 @@ import javax.persistence.*;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import org.springframework.data.relational.core.mapping.Table;
 
 @Entity(name = "usuario")
 @Table
+@JsonIgnoreProperties(value = {"handler","hibernateLazyInitializer","fieldHandler"})
 public class Usuario {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)

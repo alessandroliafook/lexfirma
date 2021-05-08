@@ -1,6 +1,6 @@
 angular
     .module("lexfirma")
-    .controller("processoCtrl", function ($scope, $modal, processos, pessoas, processoAPI, $rootScope) {
+    .controller("processoCtrl", function ($scope, $modal, processos, pessoas, processoAPI, $localStorage) {
         $scope.processos = processos.data
         $scope.pessoas = pessoas.data
 
@@ -51,7 +51,7 @@ angular
                     inicio: cadastro.inicio,
                     fim: cadastro.fim,
                     valorDaCausa: cadastro.valorDaCausa,
-                    usuarioID: $rootScope.userId,
+                    usuarioID: $localStorage.userId,
                     clienteID: cadastro.clienteID
                 }
 
@@ -74,7 +74,7 @@ angular
         }
 
         const updateProcessos = function () {
-            processoAPI.getProcessos($rootScope.userId)
+            processoAPI.getProcessos($localStorage.userId)
                 .success(function (data) {
                     $scope.processos = data
                 }).error(function (data, status) {
