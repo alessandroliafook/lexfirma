@@ -3,7 +3,7 @@ angular.module("lexfirma").factory("usuarioAPI", function ($http) {
         return $http.post("/usuario", usuario)
     }
     const _getUsuario = function (email) {
-        return $http.get("/usuario/" + email)
+        return $http.get("/login/" + email)
     }
     return {
         saveUsuario: _saveUsuario,
