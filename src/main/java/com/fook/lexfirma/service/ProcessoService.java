@@ -25,4 +25,10 @@ public class ProcessoService {
     public void deleteProcesso(Long id) {
 	processoRepository.deleteById(id);
     }
+
+    public void delete(Long id) {
+	processoRepository.findAllByUsuarioID(id).forEach(processo -> {
+	    processoRepository.delete(processo);
+	});
+    }
 }

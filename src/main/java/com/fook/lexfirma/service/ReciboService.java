@@ -25,4 +25,10 @@ public class ReciboService {
     public void deleteProcesso(Long id) {
 	reciboRepository.deleteById(id);
     }
+
+    public void delete(Long id) {
+	reciboRepository.findAllByUsuarioID(id).forEach(recibo -> {
+	    reciboRepository.delete(recibo);
+	});
+    }
 }

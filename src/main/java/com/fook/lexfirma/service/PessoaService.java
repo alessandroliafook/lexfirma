@@ -25,4 +25,10 @@ public class PessoaService {
     public void removePessoa(Long id) {
 	pessoaRepository.deleteById(id);
     }
+
+    public void delete(Long id) {
+	pessoaRepository.findAllByUsuarioID(id).forEach(pessoa -> {
+	    pessoaRepository.delete(pessoa);
+	});
+    }
 }

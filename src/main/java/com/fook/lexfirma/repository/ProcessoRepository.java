@@ -10,4 +10,5 @@ import com.fook.lexfirma.model.Processo;
 @Repository
 public interface ProcessoRepository extends JpaRepository<Processo, Long> {
     List<Processo> findAllByUsuarioID(Long usuarioID);
+    void deleteAllByUsuarioIDIs(Long usuarioID);
 }
