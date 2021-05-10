@@ -28,4 +28,8 @@ public class UsuarioService {
     public Usuario getUsuario(Long id) {
 	return usuarioRepository.getOne(id);
     }
+
+    public void deleteUsuario(Long id) {
+	usuarioRepository.deleteById(id);
+    }
 }

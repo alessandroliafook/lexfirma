@@ -10,4 +10,5 @@ import java.util.List;
 @Repository
 public interface PessoaRepository extends JpaRepository<Pessoa, Long> {
 		List<Pessoa> findAllByUsuarioID(Long usuarioID);
+		void deleteAllByUsuarioIDIs(Long usuarioID);
 }
