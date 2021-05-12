@@ -6,8 +6,6 @@ import org.springframework.stereotype.Component;
 import com.fook.lexfirma.model.Usuario;
 import com.fook.lexfirma.repository.UsuarioRepository;
 
-//import com.fook.lexfirma.model.Processo;
-
 @Component
 public class UsuarioService {
 
@@ -18,8 +16,8 @@ public class UsuarioService {
 	return usuarioRepository.save(usuario);
     }
 
-    public Long logar(String email) {
-	Usuario usuario = usuarioRepository.findByEmail(email);
+    public Long logar(String email, String senha) {
+	Usuario usuario = usuarioRepository.findByEmailAndSenha(email, senha);
 	if (usuario != null)
 	    return usuario.getId();
 	return new Long(-1);

@@ -29,11 +29,6 @@ public class UsuarioController {
 	return usuarioService.criarUsuario(usuario);
     }
 
-    @RequestMapping(value = "/login/{email}", method = RequestMethod.GET)
-    public @ResponseBody Long login(@PathVariable String email) {
-	return usuarioService.logar(email);
-    }
-
     @RequestMapping(value = "/usuario/{id}", method = RequestMethod.GET)
     public @ResponseBody Usuario getUsuario(@PathVariable Long id) {
 	return usuarioService.getUsuario(id);
