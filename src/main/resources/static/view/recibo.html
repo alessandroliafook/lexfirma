@@ -25,7 +25,7 @@
                     <td>{{getNomePessoa(recibo.titularID)}}</td>
                     <td>{{recibo.vencimento | date:'dd/MM/yyyy'}}</td>
                     <td>{{recibo.valor}}</td>
-                    <td>{{recibo.pago}}</td>
+                    <td>{{recibo.pago==true ? "Sim" : "Não"}}</td>
                     <td>
                         <a class="btn btn-danger btn-xs pull-right"
                            ng-click="delete(recibo.id)">

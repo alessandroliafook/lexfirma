@@ -3,12 +3,14 @@ angular
     .controller("loginCtrl", function ($scope, $modal, usuarioAPI, $location, $localStorage) {
 
         $localStorage.userId = null
+        $localStorage.token = null
 
         $scope.realizarLogin = function (login) {
-            usuarioAPI.login(login.email).success(
+            usuarioAPI.login(login).success(
                 function (data) {
-                    if(data > 0){
-                        $localStorage.userId = data
+                    if(data){
+                        $localStorage.userId = data.usuarioId
+                        $localStorage.token = data.chave
                         $location.path("/pessoas")
                     }
                 }).error(function (data, status) {
@@ -31,6 +33,7 @@ angular
             modalInstance.result.then(function (cadastro) {
                 const usuario = {
                     email: cadastro.email,
+                    senha: cadastro.senha,
                     nome: cadastro.nome,
                     documento: cadastro.documento
                 }

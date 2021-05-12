@@ -4,12 +4,13 @@ import javax.persistence.*;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import org.springframework.data.relational.core.mapping.Table;
+
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @Entity(name = "usuario")
 @Table
-@JsonIgnoreProperties(value = {"handler","hibernateLazyInitializer","fieldHandler"})
+@JsonIgnoreProperties(value = { "handler", "hibernateLazyInitializer", "fieldHandler" })
 public class Usuario {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -27,6 +28,10 @@ public class Usuario {
     @Column
     @NotBlank(message = "O documento não pode ser vazio!")
     private String documento;
+
+    @Column
+    @NotBlank(message = "A senha não pode ser vazio!")
+    private String senha;
 
     public Long getId() {
 	return id;
@@ -58,6 +63,14 @@ public class Usuario {
 
     public void setDocumento(String documento) {
 	this.documento = documento;
+    }
+
+    public String getSenha() {
+	return senha;
+    }
+
+    public void setSenha(String senha) {
+	this.senha = senha;
     }
 
     @Override
